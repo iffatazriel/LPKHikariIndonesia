@@ -57,11 +57,11 @@ export default function Why() {
   ];
 
   return (
-    <section ref={ref} className="w-full py-12">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section ref={ref} className="w-full py-8 md:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         {/* Section Title */}
         <motion.h2
-          className="text-xl font-bold text-brand-heading mb-6"
+          className="text-lg md:text-xl font-bold text-brand-heading mb-4 md:mb-6"
           variants={titleVariants}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
@@ -71,7 +71,7 @@ export default function Why() {
 
         {/* Feature Cards Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5"
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
@@ -79,13 +79,13 @@ export default function Why() {
           {benefits.map((benefit, idx) => (
             <motion.div
               key={idx}
-              className="bg-white rounded-xl p-5 border border-slate-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] cursor-pointer"
+              className="bg-white rounded-lg md:rounded-xl p-4 md:p-5 border border-slate-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] cursor-pointer"
               variants={cardVariants}
               whileHover="hover"
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
-              <h3 className="font-bold text-xs text-brand-heading mb-2">{benefit.title}</h3>
-              <p className="text-[11.5px] leading-relaxed text-slate-500">{benefit.desc}</p>
+              <h3 className="font-bold text-xs md:text-sm text-brand-heading mb-2">{benefit.title}</h3>
+              <p className="text-[11.5px] md:text-xs leading-relaxed text-slate-500">{benefit.desc}</p>
             </motion.div>
           ))}
         </motion.div>

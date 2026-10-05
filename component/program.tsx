@@ -139,11 +139,11 @@ export default function Program() {
 
   return (
     <>
-      <section ref={ref} id="program" className="w-full py-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section ref={ref} id="program" className="w-full py-8 md:py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           {/* Section Header */}
-          <motion.div className="mb-7" initial="hidden" animate={isVisible ? 'visible' : 'hidden'} variants={containerVariants}>
-            <motion.h2 variants={titleVariants} className="text-xl font-bold text-brand-heading">
+          <motion.div className="mb-6 md:mb-7" initial="hidden" animate={isVisible ? 'visible' : 'hidden'} variants={containerVariants}>
+            <motion.h2 variants={titleVariants} className="text-lg md:text-xl font-bold text-brand-heading">
               Program Kami
             </motion.h2>
             <motion.p variants={titleVariants} className="text-xs text-slate-500 mt-1">
@@ -152,25 +152,25 @@ export default function Program() {
           </motion.div>
 
           {/* Cards Grid */}
-          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-5" variants={containerVariants} initial="hidden" animate={isVisible ? 'visible' : 'hidden'}>
+          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5" variants={containerVariants} initial="hidden" animate={isVisible ? 'visible' : 'hidden'}>
             {programs.map((program) => (
               <motion.div
                 key={program.id}
                 variants={cardVariants}
                 whileHover="hover"
-                className="bg-white rounded-xl p-6 border border-slate-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] flex flex-col"
+                className="bg-white rounded-lg md:rounded-xl p-4 md:p-6 border border-slate-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] flex flex-col"
               >
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-lg bg-slate-900 text-white flex items-center justify-center flex-shrink-0 mb-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-slate-900 text-white flex items-center justify-center flex-shrink-0 mb-3 md:mb-4">
                   {program.icon}
                 </div>
 
                 {/* Title & Subtitle */}
-                <h3 className="font-bold text-base text-brand-heading mb-1">{program.title}</h3>
-                <p className="text-sm text-slate-600 mb-4">{program.subtitle}</p>
+                <h3 className="font-bold text-sm md:text-base text-brand-heading mb-1">{program.title}</h3>
+                <p className="text-xs md:text-sm text-slate-600 mb-3 md:mb-4">{program.subtitle}</p>
 
                 {/* Points */}
-                <ul className="space-y-2 mb-6 flex-grow">
+                <ul className="space-y-2 mb-4 md:mb-6 flex-grow">
                   {program.points.map((point, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-xs text-slate-600">
                       <svg className="w-4 h-4 text-brand-red flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -184,7 +184,7 @@ export default function Program() {
                 {/* Button */}
                 <motion.button
                   onClick={() => setSelectedProgram(program)}
-                  className="w-full bg-slate-100 hover:bg-brand-red hover:text-white text-slate-700 text-sm font-semibold py-3 rounded-full transition min-h-[44px] focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2"
+                  className="w-full bg-slate-100 hover:bg-brand-red hover:text-white text-slate-700 text-xs md:text-sm font-semibold py-2.5 md:py-3 rounded-full transition min-h-[44px] focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -200,33 +200,33 @@ export default function Program() {
       <AnimatePresence>
         {selectedProgram && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 overflow-x-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedProgram(null)}
           >
             <motion.div
-              className="bg-white rounded-2xl p-6 md:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-2xl p-5 md:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto overflow-x-hidden"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-slate-900 text-white flex items-center justify-center flex-shrink-0">
+              <div className="flex items-start justify-between mb-6 gap-3">
+                <div className="flex items-start gap-3 min-w-0 flex-1">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-slate-900 text-white flex items-center justify-center flex-shrink-0">
                     {selectedProgram.icon}
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-brand-heading">{selectedProgram.title}</h3>
-                    <p className="text-sm text-slate-600 mt-1">{selectedProgram.subtitle}</p>
+                  <div className="min-w-0">
+                    <h3 className="text-base md:text-lg font-bold text-brand-heading leading-tight">{selectedProgram.title}</h3>
+                    <p className="text-xs md:text-sm text-slate-600 mt-1">{selectedProgram.subtitle}</p>
                   </div>
                 </div>
                 <button
                   onClick={() => setSelectedProgram(null)}
-                  className="p-2 hover:bg-slate-100 rounded-full transition min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-brand-red"
+                  className="p-2 hover:bg-slate-100 rounded-full transition min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-brand-red flex-shrink-0"
                   aria-label="Tutup"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -238,26 +238,26 @@ export default function Program() {
               {/* Content */}
               <div className="space-y-5">
                 <div>
-                  <h4 className="font-bold text-base text-brand-heading mb-2">Untuk siapa?</h4>
-                  <p className="text-[15px] leading-relaxed text-slate-600">{selectedProgram.forWhom}</p>
+                  <h4 className="font-bold text-sm md:text-base text-brand-heading mb-2">Untuk siapa?</h4>
+                  <p className="text-[13px] md:text-[15px] leading-relaxed text-slate-600">{selectedProgram.forWhom}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-base text-brand-heading mb-2">Apa yang dipelajari?</h4>
-                  <p className="text-[15px] leading-relaxed text-slate-600">{selectedProgram.whatToLearn}</p>
+                  <h4 className="font-bold text-sm md:text-base text-brand-heading mb-2">Apa yang dipelajari?</h4>
+                  <p className="text-[13px] md:text-[15px] leading-relaxed text-slate-600">{selectedProgram.whatToLearn}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-base text-brand-heading mb-2">Hasil akhir</h4>
-                  <p className="text-[15px] leading-relaxed text-slate-600">{selectedProgram.expectedResult}</p>
+                  <h4 className="font-bold text-sm md:text-base text-brand-heading mb-2">Hasil akhir</h4>
+                  <p className="text-[13px] md:text-[15px] leading-relaxed text-slate-600">{selectedProgram.expectedResult}</p>
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-base text-brand-heading mb-3">Informasi yang perlu ditanyakan</h4>
+                  <h4 className="font-bold text-sm md:text-base text-brand-heading mb-3">Informasi yang perlu ditanyakan</h4>
                   <ul className="space-y-2">
                     {selectedProgram.toAsk.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-[15px] text-slate-600">
-                        <svg className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <li key={idx} className="flex items-start gap-2 text-[13px] md:text-[15px] text-slate-600">
+                        <svg className="w-4 h-4 md:w-5 md:h-5 text-slate-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <span>{item}</span>
@@ -268,23 +268,23 @@ export default function Program() {
               </div>
 
               {/* Action Button */}
-              <div className="mt-8 pt-6 border-t border-slate-200">
+              <div className="mt-6 md:mt-8 pt-5 md:pt-6 border-t border-slate-200">
                 <motion.a
                   href={`https://wa.me/6289672022977?text=Halo,%20saya%20ingin%20bertanya%20tentang%20program%20${encodeURIComponent(selectedProgram.title)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-brand-red hover:bg-brand-redHover text-white text-base font-semibold py-3 rounded-full transition flex items-center justify-center gap-2 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2"
+                  className="w-full bg-brand-red hover:bg-brand-redHover text-white text-sm md:text-base font-semibold py-3 rounded-full transition flex items-center justify-center gap-2 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                   </svg>
                   Tanya program ini via WhatsApp
                 </motion.a>
               </div>
 
-              <p className="text-xs text-slate-500 text-center mt-4">Hubungi admin untuk informasi lengkap dan terbaru.</p>
+              <p className="text-xs text-slate-500 text-center mt-3 md:mt-4">Hubungi admin untuk informasi lengkap dan terbaru.</p>
             </motion.div>
           </motion.div>
         )}

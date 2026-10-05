@@ -24,16 +24,16 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="w-full bg-slate-50 border-t border-slate-200 mt-auto py-5"
+      className="w-full bg-slate-50 border-t border-slate-200 mt-auto py-4 md:py-5"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-2 md:gap-3 text-[10px] md:text-[11px] text-slate-500">
         {/* Left Copyright & Address */}
         <motion.p
-          className="text-center md:text-left"
+          className="text-center md:text-left leading-relaxed"
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"

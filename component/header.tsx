@@ -66,16 +66,16 @@ export default function Header() {
         boxShadow: isScrolled ? '0 4px 12px rgba(0,0,0,0.08)' : 'none',
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 md:h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <motion.div
-          className="flex items-center gap-6"
+          className="flex items-center gap-4 md:gap-6"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <motion.a
-            className="flex items-center gap-2.5 cursor-pointer"
+            className="flex items-center gap-2 md:gap-2.5 cursor-pointer"
             href="#"
             onClick={(e) => {
               e.preventDefault();
@@ -84,21 +84,21 @@ export default function Header() {
             whileHover={{ scale: 1.05 }}
           >
             <motion.svg
-              className="w-6 h-6 text-brand-red flex-shrink-0 fill-current"
+              className="w-5 h-5 md:w-6 md:h-6 text-brand-red flex-shrink-0 fill-current"
               viewBox="0 0 24 24"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
             >
               <path d="M12 2a1.5 1.5 0 0 1 1.5 1.5v1.2a7.002 7.002 0 0 1 4.3 2.484l.85-.85a1.5 1.5 0 0 1 2.12 2.122l-.848.848A7.002 7.002 0 0 1 22.4 13.5h-1.2a1.5 1.5 0 0 1 0-3h1.2a7.002 7.002 0 0 1-2.478 4.3l.848.848a1.5 1.5 0 0 1-2.12 2.122l-.85-.85A7.002 7.002 0 0 1 13.5 19.3v1.2a1.5 1.5 0 0 1-3 0v-1.2a7.002 7.002 0 0 1-4.3-2.48l-.85.85a1.5 1.5 0 0 1-2.12-2.122l.848-.848A7.002 7.002 0 0 1 1.6 10.5h1.2a1.5 1.5 0 0 1 0 3H1.6a7.002 7.002 0 0 1 2.478-4.3l-.848-.848a1.5 1.5 0 0 1 2.12-2.122l.85.85A7.002 7.002 0 0 1 10.5 4.7V3.5A1.5 1.5 0 0 1 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" />
             </motion.svg>
-            <span className="font-bold text-brand-heading text-lg tracking-tight">
+            <span className="font-bold text-brand-heading text-sm md:text-lg tracking-tight">
               LPK Hikari Indonesia
             </span>
           </motion.a>
         </motion.div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {navItems.map((item) => (
             <motion.a
               key={item.href}
@@ -107,7 +107,7 @@ export default function Header() {
                 e.preventDefault();
                 scrollToSection(item.href);
               }}
-              className="text-sm font-medium text-slate-700 hover:text-brand-red transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2 rounded px-2 py-1"
+              className="text-xs md:text-sm font-medium text-slate-700 hover:text-brand-red transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2 rounded px-2 py-1"
               whileHover={{ scale: 1.05 }}
             >
               {item.label}
@@ -116,9 +116,9 @@ export default function Header() {
         </nav>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
           <motion.a
-            className="hidden md:inline-block bg-brand-red hover:bg-brand-redHover text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all shadow-sm cursor-pointer min-h-[44px] flex items-center"
+            className="hidden md:inline-block bg-brand-red hover:bg-brand-redHover text-white text-xs font-semibold px-4 lg:px-5 py-2 md:py-2.5 rounded-full transition-all shadow-sm cursor-pointer min-h-[44px] flex items-center"
             href="#daftar"
             onClick={(e) => {
               e.preventDefault();

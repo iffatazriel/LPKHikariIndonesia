@@ -75,50 +75,50 @@ export default function AlurPeserta() {
   ];
 
   return (
-    <section ref={ref} id="alur" className="w-full py-12">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section ref={ref} id="alur" className="w-full py-8 md:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         {/* Section Title */}
         <motion.div
-          className="mb-8"
+          className="mb-6 md:mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-xl font-bold text-brand-heading">Alur Peserta</h2>
+          <h2 className="text-lg md:text-xl font-bold text-brand-heading">Alur Peserta</h2>
           <p className="text-xs text-slate-500 mt-1">Langkah berurutan dari pendaftaran hingga berangkat.</p>
         </motion.div>
 
         {/* Main Step Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start">
           {/* Steps Timeline (Left) */}
           <div className="lg:col-span-8 relative">
             {/* Vertical connecting line */}
             <motion.div
-              className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-red via-rose-300 to-emerald-200 origin-top"
+              className="absolute left-3 md:left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-red via-rose-300 to-emerald-200 origin-top"
               variants={lineVariants}
               initial="hidden"
               animate={isVisible ? 'visible' : 'hidden'}
             />
 
             <motion.div
-              className="space-y-6 relative z-10"
+              className="space-y-4 md:space-y-6 relative z-10"
               variants={containerVariants}
               initial="hidden"
               animate={isVisible ? 'visible' : 'hidden'}
             >
               {steps.map((step, idx) => (
-                <motion.div key={idx} variants={stepVariants} className="flex gap-4 items-start">
+                <motion.div key={idx} variants={stepVariants} className="flex gap-3 md:gap-4 items-start">
                   {/* Number badge */}
                   <motion.div
-                    className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-red text-white flex items-center justify-center text-xs font-bold shadow-md"
+                    className="flex-shrink-0 w-6 h-6 md:w-8 md:h-8 rounded-full bg-brand-red text-white flex items-center justify-center text-xs font-bold shadow-md"
                     variants={numberVariants}
                   >
                     {idx + 1}
                   </motion.div>
 
                   {/* Content */}
-                  <div className="flex-1">
-                    <h4 className="text-xs font-bold text-brand-heading">{step.title}</h4>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-xs md:text-sm font-bold text-brand-heading">{step.title}</h4>
                     <p className="text-xs text-slate-500 mt-0.5">{step.desc}</p>
                   </div>
                 </motion.div>
@@ -134,17 +134,17 @@ export default function AlurPeserta() {
             animate={isVisible ? 'visible' : 'hidden'}
           >
             <motion.div
-              className="bg-slate-50/70 border border-slate-100 rounded-2xl p-6"
+              className="bg-slate-50/70 border border-slate-100 rounded-xl md:rounded-2xl p-4 md:p-6"
               whileHover={{ scale: 1.02, boxShadow: '0 8px 16px rgba(0,0,0,0.08)' }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="text-xs font-bold text-brand-heading mb-1.5">Siap memulai?</h3>
-              <p className="text-[11px] leading-relaxed text-slate-500 mb-5">
+              <h3 className="text-xs md:text-sm font-bold text-brand-heading mb-1.5">Siap memulai?</h3>
+              <p className="text-[11px] leading-relaxed text-slate-500 mb-4 md:mb-5">
                 Hubungi admin untuk info jalur program dan jadwal pendaftaran.
               </p>
-              <div className="flex items-center gap-2.5">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 md:gap-2.5">
                 <motion.a
-                  className="bg-brand-red hover:bg-brand-redHover text-white text-xs font-semibold px-5 py-2 rounded-full transition shadow-sm cursor-pointer"
+                  className="bg-brand-red hover:bg-brand-redHover text-white text-xs font-semibold px-4 md:px-5 py-2.5 rounded-full transition shadow-sm cursor-pointer min-h-[44px] flex items-center justify-center"
                   href="#kontak"
                   onClick={(e) => {
                     e.preventDefault();
@@ -157,7 +157,7 @@ export default function AlurPeserta() {
                   Chat admin
                 </motion.a>
                 <motion.a
-                  className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-xs font-semibold px-4 py-2 rounded-full transition shadow-sm cursor-pointer"
+                  className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-xs font-semibold px-3 md:px-4 py-2.5 rounded-full transition shadow-sm cursor-pointer min-h-[44px] flex items-center justify-center"
                   href="#daftar"
                   onClick={(e) => {
                     e.preventDefault();

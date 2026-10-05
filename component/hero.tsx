@@ -44,8 +44,8 @@ export default function Hero() {
   };
 
   return (
-    <section ref={ref} className="w-full pt-16 pb-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section ref={ref} className="w-full pt-8 md:pt-16 pb-8 md:pb-12 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12 items-center">
         {/* Hero Left: Typography & CTAs */}
         <motion.div
           className="lg:col-span-7"
@@ -55,13 +55,13 @@ export default function Hero() {
         >
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-extrabold text-brand-heading leading-[1.18] tracking-tight mb-6"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-heading leading-tight md:leading-[1.18] tracking-tight mb-4 md:mb-6"
           >
-            Wujudkan Karir Impian Ke Jepang
+            Dari Sidareja ke Jepang, mulai dari satu kelas bahasa.
           </motion.h1>
           <motion.p
             variants={itemVariants}
-            className="text-slate-600 text-sm md:text-base leading-relaxed mb-8 max-w-xl"
+            className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed mb-6 md:mb-8 max-w-xl"
           >
             LPK Hikari membantu mempersiapkan calon pekerja melalui pelatihan bahasa, pemagangan resmi (Kenshusei), dan
             pembinaan budaya kerja Jepang agar siap berangkat dan beradaptasi.
@@ -70,12 +70,12 @@ export default function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center gap-3.5 mb-6"
+            className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 mb-4 md:mb-6"
           >
             <motion.a
               variants={buttonVariants}
               whileHover="hover"
-              className="bg-brand-red hover:bg-brand-redHover text-white text-xs font-semibold px-6 py-2.5 rounded-full transition shadow-sm cursor-pointer"
+              className="bg-brand-red hover:bg-brand-redHover text-white text-xs sm:text-sm font-semibold px-4 sm:px-6 py-3 rounded-full transition shadow-sm cursor-pointer min-h-[44px] flex items-center justify-center"
               href="#kontak"
               onClick={(e) => {
                 e.preventDefault();
@@ -88,7 +88,7 @@ export default function Hero() {
             <motion.a
               variants={buttonVariants}
               whileHover="hover"
-              className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-xs font-semibold px-6 py-2.5 rounded-full transition shadow-sm cursor-pointer"
+              className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-xs sm:text-sm font-semibold px-4 sm:px-6 py-3 rounded-full transition shadow-sm cursor-pointer min-h-[44px] flex items-center justify-center"
               href="#daftar"
               onClick={(e) => {
                 e.preventDefault();
@@ -110,21 +110,21 @@ export default function Hero() {
 
         {/* Hero Right: Abstract Japanese Graphic with Parallax */}
         <motion.div
-          className="lg:col-span-5 flex justify-center items-center relative py-6"
+          className="lg:col-span-5 flex justify-center items-center relative py-4 md:py-6"
           initial={{ opacity: 0, x: 50 }}
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           style={{ y: mouseY }}
         >
-          <div className="relative w-72 h-72 flex items-center justify-center">
+          <div className="relative w-48 sm:w-56 md:w-72 h-48 sm:h-56 md:h-72 flex items-center justify-center">
             {/* Light Red / Pink Circle with Kanji Hikari (光) */}
             <motion.div
-              className="w-56 h-56 rounded-full bg-red-200/75 flex items-center justify-center shadow-inner overflow-hidden relative"
+              className="w-32 sm:w-40 md:w-56 h-32 sm:h-40 md:h-56 rounded-full bg-red-200/75 flex items-center justify-center shadow-inner overflow-hidden relative"
               animate={{ y: mouseY * 0.5 }}
               transition={{ type: 'spring', stiffness: 50 }}
             >
               <motion.span
-                className="text-white text-8xl font-bold opacity-90 kanji-watermark select-none pointer-events-none"
+                className="text-white text-5xl sm:text-6xl md:text-8xl font-bold opacity-90 kanji-watermark select-none pointer-events-none"
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 6, repeat: Infinity }}
               >
@@ -133,11 +133,11 @@ export default function Hero() {
             </motion.div>
 
             {/* Rounded Light Green Horizontal Bars */}
-            <div className="absolute inset-0 flex flex-col justify-center items-center gap-3.5 z-10">
+            <div className="absolute inset-0 flex flex-col justify-center items-center gap-2 md:gap-3.5 z-10">
               {[0, 1, 2].map((i) => (
                 <motion.div
                   key={i}
-                  className="w-full max-w-[340px] h-3.5 bg-emerald-100/90 rounded-full shadow-sm"
+                  className="w-full max-w-xs sm:max-w-sm md:max-w-[340px] h-2.5 md:h-3.5 bg-emerald-100/90 rounded-full shadow-sm"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}

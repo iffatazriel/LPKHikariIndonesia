@@ -34,16 +34,16 @@ export default function Lokasi() {
   };
 
   return (
-    <section ref={ref} className="w-full py-12">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <section ref={ref} className="w-full py-8 md:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start">
         {/* Left Column: Location Details */}
         <motion.div
-          className="lg:col-span-6 space-y-4"
+          className="lg:col-span-6 space-y-3 md:space-y-4"
           variants={leftVariants}
           initial="hidden"
           animate={isVisible ? 'visible' : 'hidden'}
         >
-          <h2 className="text-xl font-bold text-brand-heading">Lokasi & Jam Layanan</h2>
+          <h2 className="text-lg md:text-xl font-bold text-brand-heading">Lokasi & Jam Layanan</h2>
           <p className="text-xs text-slate-600 leading-relaxed max-w-md">
             Kedungsari, Bumireja, Kec. Kedungreja, Kabupaten Cilacap, Jawa Tengah 53263 (jalur JLS
             Kedungreja-Gandrungmangu)
@@ -54,7 +54,7 @@ export default function Lokasi() {
           </motion.div>
           <motion.div className="pt-1" variants={itemVariants}>
             <motion.a
-              className="inline-block bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 text-xs font-semibold px-5 py-2 rounded-full transition shadow-sm cursor-pointer"
+              className="inline-block bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 text-xs font-semibold px-4 md:px-5 py-2 rounded-full transition shadow-sm cursor-pointer min-h-[44px] flex items-center"
               href="https://maps.google.com"
               rel="noopener noreferrer"
               target="_blank"
@@ -74,13 +74,13 @@ export default function Lokasi() {
           animate={isVisible ? 'visible' : 'hidden'}
         >
           <motion.div
-            className="bg-slate-50/70 border border-slate-100 rounded-2xl p-6"
+            className="bg-slate-50/70 border border-slate-100 rounded-lg md:rounded-2xl p-4 md:p-6"
             whileHover={{ boxShadow: '0 8px 20px rgba(0,0,0,0.08)' }}
           >
-            <h3 className="text-xs font-bold text-brand-heading mb-4">Kontak Cepat</h3>
-            <div className="flex flex-wrap items-center gap-3 mb-5">
+            <h3 className="text-xs md:text-sm font-bold text-brand-heading mb-3 md:mb-4">Kontak Cepat</h3>
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 md:gap-3 mb-4 md:mb-5">
               <motion.a
-                className="bg-brand-red hover:bg-brand-redHover text-white text-xs font-semibold px-5 py-2.5 rounded-full transition shadow-sm cursor-pointer"
+                className="bg-brand-red hover:bg-brand-redHover text-white text-xs font-semibold px-3 md:px-5 py-2.5 rounded-full transition shadow-sm cursor-pointer min-h-[44px] flex items-center justify-center"
                 href="https://wa.me/6289672022977"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -90,7 +90,7 @@ export default function Lokasi() {
                 Chat WhatsApp +62 896-7202-2977
               </motion.a>
               <motion.a
-                className="bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 text-xs font-semibold px-5 py-2.5 rounded-full transition shadow-sm cursor-pointer"
+                className="bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 text-xs font-semibold px-3 md:px-5 py-2.5 rounded-full transition shadow-sm cursor-pointer min-h-[44px] flex items-center justify-center"
                 href="https://wa.me/62882003132501"
                 rel="noopener noreferrer"
                 target="_blank"
